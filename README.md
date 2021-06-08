@@ -1,3 +1,7 @@
+# About this project
+
+This is was created for our COM1001 Semester 2 Project. In this project we had to create an E-mentoring website using the Sinatra Ruby Web Framework.
+
 # E-mentor scheme web application
 
 A web application written in Ruby which allows mentors and mentees to contact each other and exchange information.
@@ -78,3 +82,14 @@ The initial administrator (the ‘founder’) can also **promote other users**.
 ## The report system
 
 Users can **submit reports** to administrators in case something inappropriate happens during the mentoring process. The administrators are then able to view the reports.  
+
+# Contributing
+This was created by Team 02
+
+[Ariful Haque](https://github.com/ArifulH8)  
+[Edmond Chu](https://github.com/12EChu)  
+[Jakub Bolcun](https://github.com/jakub02bolcun)  
+[Josh Dixon](https://github.com/aca19jad)  
+[Vlad Mihai Cranga](https://github.com/vcvlad)  
+[Wenxiang Cai](https://github.com/JenSooLiChaeng)  
+Robertas Burskys
