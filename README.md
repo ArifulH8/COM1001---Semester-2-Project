@@ -1,12 +1,19 @@
 # About this project
 
-This is was created for our COM1001 Semester 2 Project. In this project we had to create an E-mentoring website using the Sinatra Ruby Web Framework.
+This was created for our COM1001 Semester 2 Project. In this project we had to create an E-mentoring website using the Sinatra Ruby Web Framework.
+It was initially developed to be used in a codio box. It has been changed to work in a more general environment.
+
+## Prerequisites
+Some applications are needed before you can start the web app  
+``Ruby 2.6+``  
+``Bundler Gem 2.0+``  
+``Sqlite3 3.22+``  
 
 # E-mentor scheme web application
 
 A web application written in Ruby which allows mentors and mentees to contact each other and exchange information.
 
-## To Start The Web App
+## To Start The Web App On Codio
 
 -Visit <https://codio.com> and log into your account, or register first.
 
@@ -18,9 +25,11 @@ A web application written in Ruby which allows mentors and mentees to contact ea
 
 -Type the following commands in the terminal and press enter after each:
 
-``git clone git@git.shefcompsci.org.uk:com1001-2020-21/team02/project.git`` to clone the project to your system  
+``git clone https://github.com/ArifulH8/COM1001---Semester-2-Project`` to clone the project to your system  
 
-``cd project``
+``cd COM1001---Semester-2-Project``
+
+``gem install bundler``
 
 ``bundle install``
 
@@ -28,8 +37,21 @@ A web application written in Ruby which allows mentors and mentees to contact ea
 
 -Finally, go to the URL of your app, this will be printed to the terminal (‘This sinatra application is available at: *-*-4567.codio.io ‘).
 
-*If you wish to stop the web app, press Control + C in the terminal located in the other tab, the codio box.
+-If you wish to stop the web app, press Control + C in the terminal located in the other tab, the codio box.
 
+# For Non Codio Development 
+
+A very similar process
+
+``git clone https://github.com/ArifulH8/COM1001---Semester-2-Project`` to clone the project to your system
+
+``cd COM1001---Semester-2-Project``
+
+``gem install bundler``
+
+``bundle install``
+
+``ruby app.rb``
 
 ## Example user accounts you can use
 

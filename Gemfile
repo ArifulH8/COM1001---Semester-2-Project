@@ -1,5 +1,5 @@
 source "https://rubygems.org" do
-  # Sinarta/Webserver
+  # Sinatra/Webserver
   gem "require_all"
   gem "sinatra"
   gem "sinatra-contrib"
