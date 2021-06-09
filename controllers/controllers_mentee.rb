@@ -27,6 +27,7 @@ get "/mentee" do
     @mentee = User.first(id: @user.has_mentor)
   end
 
+  # Gets dataset for industry sectors
   @dataset_is = dataset_ret_is
   # Display a personalised message upon a successful mentee login
   @s = "Welcome, #{@user.name}. \n You have sucessfully logged in as a #{@user.get_privileges.downcase}."

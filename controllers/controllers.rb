@@ -152,6 +152,9 @@ get "/profile" do
     @admin_profile = true
   end
 
+  # Gets dataset for industry sectors
+  @dataset_is = dataset_ret_is
+
   erb :profile
 end
 

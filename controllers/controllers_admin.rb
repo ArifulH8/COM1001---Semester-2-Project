@@ -29,6 +29,8 @@ get "/admin" do
     @table_show = true
   end
 
+  # Gets dataset for industry sectors
+  @dataset_is = dataset_ret_is
   # Display a personalised message upon a successful admin login
   @s = "Welcome, #{@user.name}. \n You have successfully logged in as a #{@user.get_privileges.downcase}."
   erb :admin
@@ -89,6 +91,9 @@ get "/change-user" do
   else
     @admin_profile = true
   end
+  # Gets dataset for industry sectors
+  @dataset_is = dataset_ret_is
+
   erb :profile_user_change
 end
 
