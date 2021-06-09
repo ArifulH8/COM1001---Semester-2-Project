@@ -82,11 +82,6 @@ post "/post-mentor-accept" do
      (Only available 24 hours after initial invite to mentor)"
   end
   email = @mentee.email
-  puts "Sending email..."
-  if send_mail(email, subject, body)
-    puts "Email Sent Ok."
-  else
-    puts "Sending failed."
-  end
+  send_mail_full(email, subject, body)
   redirect "/mentor"
 end

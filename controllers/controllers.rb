@@ -204,11 +204,7 @@ post "/post-profile" do
 
         # Sends the notification email to the user. redirect to dashboard
         # if the email sent successfully or to their profile page if not
-        if send_mail(email, subject, body)
-          puts "Email Sent Ok."
-        else
-          puts "Sending failed."
-        end
+        send_mail_full(email, subject, body)
         redirect "/dashboard"
       else
         redirect "/profile?error1=1"

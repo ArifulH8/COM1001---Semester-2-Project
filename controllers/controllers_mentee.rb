@@ -124,11 +124,7 @@ def invitation_email
   puts "Sending email..."
 
   # Sends the invitation email and redirect to mentee page
-  if send_mail(email, subject, body)
-    puts "Email Sent Ok."
-  else
-    puts "Sending failed."
-  end
+  send_mail_full(email, subject, body)
 
   redirect "/mentee"
 end

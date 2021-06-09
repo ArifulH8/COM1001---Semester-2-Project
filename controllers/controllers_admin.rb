@@ -129,11 +129,7 @@ post "/change-user" do
 
     # Sends the notification email to the user. redirect to dashboard
     # if the email sent successfully or to their profile page if not
-    if send_mail(email, subject, body)
-      puts "Email Sent Ok."
-    else
-      puts "Sending failed."
-    end
+    send_mail_full(email,subject, body)
   end
 
   @description.save_changes
@@ -211,12 +207,7 @@ post "/suspension" do
   end
 
   # Sends the constructed email and redirect to dashboard
-  puts "Sending email..."
-  if send_mail(email, subject, body)
-    puts "Email Sent Ok."
-  else
-    puts "Sending failed."
-  end
+  send_mail_full(email, subject, body)
 
   @user.save_changes
   redirect "/dashboard"
