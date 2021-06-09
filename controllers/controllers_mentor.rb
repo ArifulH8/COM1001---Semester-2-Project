@@ -22,6 +22,7 @@ get "/mentor-register" do
   redirect "/login" if @id == "0"
 
   @user = User.first(id: @id)
+  @dataset_is = dataset_ret_is
   @message = "Hello prospective mentor, #{@user.name}. Please input the details below!"
   erb :mentor_register
 end
