@@ -5,7 +5,5 @@
 
 <label>Industry Sector:</label> 
 <select name="industry_Sector" required>
-    <% @dataset_is.each do |ind| %>
-      <option value="<%= h ind.sector %>"><%= h ind.sector %></option>
-  <% end %>
+    <%= erb :"common/industrySectorLoop" %>
 </select>
