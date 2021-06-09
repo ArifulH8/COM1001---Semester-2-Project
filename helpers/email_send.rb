@@ -5,3 +5,11 @@ def send_mail(email, subject, body)
                                  "recipients" => email, "subject" => subject, "body" => body)
   response.is_a? Net::HTTPSuccess
 end
+
+def send_mail_full(email, subject, body)
+  if send_mail(email, subject, body)
+    puts "Email Sent Ok."
+  else
+    puts "Sending failed."
+  end
+end

@@ -22,6 +22,7 @@ get "/mentor-register" do
   redirect "/login" if @id == "0"
 
   @user = User.first(id: @id)
+  @dataset_is = dataset_ret_is
   @message = "Hello prospective mentor, #{@user.name}. Please input the details below!"
   erb :mentor_register
 end
@@ -81,11 +82,6 @@ post "/post-mentor-accept" do
      (Only available 24 hours after initial invite to mentor)"
   end
   email = @mentee.email
-  puts "Sending email..."
-  if send_mail(email, subject, body)
-    puts "Email Sent Ok."
-  else
-    puts "Sending failed."
-  end
+  send_mail_full(email, subject, body)
   redirect "/mentor"
 end

@@ -12,4 +12,8 @@ class Industry_sector < Sequel::Model
     record = Industry_sector.first(id: id)
     record.sector
   end
+
+  def all_sector
+    Industry_sector.all
+  end
 end

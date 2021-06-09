@@ -10,14 +10,7 @@ get "/" do
     @privilege = @user.get_privileges
 
     # Find out what type of user they are and then redirect them to the correct page
-    case @privilege
-    when "Mentee"
-      redirect "/mentee"
-    when "Mentor"
-      redirect "/mentor"
-    else
-      redirect "/admin"
-    end
+    perm_redirect
   end
 
   erb :index
@@ -67,16 +60,8 @@ post "/post-login" do
     @id = @user.id
     response.set_cookie("id", @id)
 
-    # Find out what type of user they are and then redirect them to the
-    # correct page
-    case @privilege
-    when "Mentee"
-      redirect "/mentee"
-    when "Mentor"
-      redirect "/mentor"
-    else
-      redirect "/admin"
-    end
+    # Find out what type of user they are and then redirect them to the correct page
+    perm_redirect
   end
 end
 
@@ -121,14 +106,7 @@ get "/dashboard" do
 
     # Find out what type of user they are and then redirect them to the
     # correct page
-    case @privilege
-    when "Mentee"
-      redirect "/mentee"
-    when "Mentor"
-      redirect "/mentor"
-    when "Founder", "Admin"
-      redirect "/admin"
-    end
+    perm_redirect
   end
 end
 
@@ -151,6 +129,9 @@ get "/profile" do
   else
     @admin_profile = true
   end
+
+  # Gets dataset for industry sectors
+  @dataset_is = dataset_ret_is
 
   erb :profile
 end
@@ -201,11 +182,7 @@ post "/post-profile" do
 
         # Sends the notification email to the user. redirect to dashboard
         # if the email sent successfully or to their profile page if not
-        if send_mail(email, subject, body)
-          puts "Email Sent Ok."
-        else
-          puts "Sending failed."
-        end
+        send_mail_full(email, subject, body)
         redirect "/dashboard"
       else
         redirect "/profile?error1=1"

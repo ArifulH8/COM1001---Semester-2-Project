@@ -29,6 +29,8 @@ get "/admin" do
     @table_show = true
   end
 
+  # Gets dataset for industry sectors
+  @dataset_is = dataset_ret_is
   # Display a personalised message upon a successful admin login
   @s = "Welcome, #{@user.name}. \n You have successfully logged in as a #{@user.get_privileges.downcase}."
   erb :admin
@@ -89,6 +91,9 @@ get "/change-user" do
   else
     @admin_profile = true
   end
+  # Gets dataset for industry sectors
+  @dataset_is = dataset_ret_is
+
   erb :profile_user_change
 end
 
@@ -124,11 +129,7 @@ post "/change-user" do
 
     # Sends the notification email to the user. redirect to dashboard
     # if the email sent successfully or to their profile page if not
-    if send_mail(email, subject, body)
-      puts "Email Sent Ok."
-    else
-      puts "Sending failed."
-    end
+    send_mail_full(email,subject, body)
   end
 
   @description.save_changes
@@ -206,12 +207,7 @@ post "/suspension" do
   end
 
   # Sends the constructed email and redirect to dashboard
-  puts "Sending email..."
-  if send_mail(email, subject, body)
-    puts "Email Sent Ok."
-  else
-    puts "Sending failed."
-  end
+  send_mail_full(email, subject, body)
 
   @user.save_changes
   redirect "/dashboard"

@@ -12,4 +12,5 @@ require_rel "controllers"
 require_rel "models"
 require_rel "helpers"
 
-puts "https://#{Socket.gethostname}-4567.codio.io" if ENV["USER"] == "codio"
+puts "This sinatra application is available at: https://#{Socket.gethostname}-4567.codio.io" if ENV["USER"] == "codio"
+puts "This sinatra application is available at: http://localhost:4567" unless ENV["USER"] == "codio"

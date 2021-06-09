@@ -27,6 +27,8 @@ get "/mentee" do
     @mentee = User.first(id: @user.has_mentor)
   end
 
+  # Gets dataset for industry sectors
+  @dataset_is = dataset_ret_is
   # Display a personalised message upon a successful mentee login
   @s = "Welcome, #{@user.name}. \n You have sucessfully logged in as a #{@user.get_privileges.downcase}."
   erb :mentee
@@ -122,11 +124,7 @@ def invitation_email
   puts "Sending email..."
 
   # Sends the invitation email and redirect to mentee page
-  if send_mail(email, subject, body)
-    puts "Email Sent Ok."
-  else
-    puts "Sending failed."
-  end
+  send_mail_full(email, subject, body)
 
   redirect "/mentee"
 end
